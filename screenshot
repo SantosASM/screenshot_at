@@ -1,0 +1,53 @@
+from playwright.sync_api import sync_playwright
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from time import sleep
+import pyautogui
+import time
+import os
+from pathlib import Path
+from playwright.sync_api import sync_playwright, TimeoutError as PWTimeoutError
+
+# Aguarda alguns segundos para que você possa posicionar o mouse
+#time.sleep(5)
+
+# Obtém a posição atual do mouse
+#posicao = pyautogui.position()
+
+# Imprime a posição (X, Y)
+#print(f"A posição atual do mouse é: {posicao}")
+
+# entrar no looker studio
+driver = webdriver.Chrome()
+driver.get("https://lookerstudio.google.com/reporting/29e20302-d517-4acd-acba-c0e9b1abb069/page/p_abtltvqdwd/edit?pli=1")
+
+pyautogui.click(1474,40, duration=2)
+sleep(1)
+pyautogui.click(1049,478, duration=2)
+campo_usuario = driver.find_element(By.XPATH,"//input[@aria-label='E-mail ou telefone']")
+sleep(1)
+campo_usuario.send_keys('andreymor.moraes@mercadolivre.com')
+avancar = driver.find_element(By.XPATH,"//span[@class='VfPpkd-vQzf8d']")
+sleep(1)    
+pyautogui.click(1498,849, duration=2)
+sleep(1)
+pyautogui.click(1482,848, duration=1)
+pyautogui.click(1160,583, duration=1)
+campo_senha = driver.find_element(By.XPATH,"//input[@aria-label='Digite sua senha']")
+sleep(1)
+pyautogui.click(1049,478, duration=1)
+sleep(1)
+campo_senha.send_keys('Fornalha2014$')
+sleep(1)
+pyautogui.click(1482,820, duration=1)
+sleep(10)
+
+
+#Verificação em duas etapas
+#Receber um código de verificação do app Google Authenticator
+
+#sleep(10)
+#input('')
+
+
+
